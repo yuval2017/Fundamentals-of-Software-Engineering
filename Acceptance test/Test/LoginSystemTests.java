@@ -1,7 +1,7 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-public class LoginSystemTests extends  ShowManagerTests {
+public class LoginSystemTests extends ShowTests {
 
 	@Override
 	public void setUp() throws Exception{
@@ -10,30 +10,23 @@ public class LoginSystemTests extends  ShowManagerTests {
 
 	@Test
 	public void testLogin(){
-		try{
-			Assert.assertTrue(loginUserShow("matanel", "1234"));
-		} catch (Exception e){
-			Assert.fail(e.getMessage());
-		}
+
+			Assert.assertTrue(loginUser("Bar", "123"));
+
 	}
 
 	@Test
 	public void testSadLogin(){
-		try{
-			Assert.assertFalse(loginUserShow("orel", "1234"));
-		} catch (Exception e){
-			Assert.fail(e.getMessage());
-		}
+
+			Assert.assertFalse(loginUser("Yuval", "124"));
+
 	}
 
 	@Test
 	public void testBadLogin(){
 
-		String sqlInjection = "' Or 'a' = 'a";
-		try{
-			Assert.assertFalse(loginUserShow(sqlInjection, sqlInjection));
-		} catch (Exception e){
-			Assert.fail(e.getMessage());
-		}
+		String Injection = "' Or 'x' => 'x";
+		Assert.assertFalse(loginUser(Injection, Injection));
+
 	}
 }

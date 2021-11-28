@@ -1,50 +1,38 @@
 import junit.framework.Assert;
 import org.junit.Test;
 
-public class RegistrationSystemTests extends ShowManagerTests {
+public class RegistrationSystemTests extends ShowTests {
 
 	@Override
-	public void setUp() throws Exception{
+	public void setUp() {
 
 
 	}
 
 	@Test
-	public void testRegistrationForProject(){
+	public void testRegistrationForShow(){
 
-		try{
-			int[] ids = {209261023, 208214478};
-			Assert.assertTrue(registerToShow(ids, 318764780, 1) > 0);
-		} catch (Exception e){
-			Assert.fail(e.getMessage());
-		}
+		int[] seats = {20, 21,22};
+		Assert.assertTrue(registerToShow("Bar", "0527715033", seats));
+
 
 	}
 
 	@Test
-	public void testSadRegistrationForProject(){
+	public void testBadRegistrationForShow(){
 
-		try{
-			int[] ids = {209261023, 208214478};
-			Assert.assertFalse(registerToShow(ids, 208892355, 123) > 0);
-		} catch (Exception e){
-			Assert.fail(e.getMessage());
-		}
+		int[] seats = {20, 21,22};
+		Assert.assertFalse(registerToShow("Amir", "0594856325", seats));
 	}
+
 
 	@Test
-	public void testBadRegistrationForProject(){
-		try{
-			int[] maliciousIds = {209261023, 208214478};
-			int maliciousLecturerId = 127371283;
-			int maliciousProjectId = 1982361287;
-			Assert.assertFalse(registerToShow(maliciousIds , maliciousLecturerId , maliciousProjectId) > 0);
-		} catch (Exception e){
-			Assert.fail(e.getMessage());
-		}
+	public void testSadRegistrationForShow(){
+
+		int[] seats = {20, 21,22};
+		Assert.assertTrue(registerToShow("Bar", "0527715033", seats));
+		Assert.assertTrue(registerToShow("Yuval", "0545682459", seats));
 	}
-
-
 
 
 }
