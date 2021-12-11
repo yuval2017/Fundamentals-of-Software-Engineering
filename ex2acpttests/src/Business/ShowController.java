@@ -14,13 +14,11 @@ public class ShowController {
     private HashMap<String, List<String>> citiesAndHalls;
     private HashMap<String,int[]> hallsSits;
     private HashMap<Integer,ShowInfo> shows;
-    private HashMap<String,Integer> showsOrders;
     private int showID = 0;
     public ShowController(){
         citiesAndHalls = new HashMap<>();
         hallsSits = new HashMap<>();
         shows = new HashMap<>();
-        showsOrders = new HashMap<>();
     }
     public boolean addCity(String city) {
         if(!citiesAndHalls.containsKey(city)){
