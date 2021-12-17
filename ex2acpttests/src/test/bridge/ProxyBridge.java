@@ -3,13 +3,12 @@ package test.bridge;
 import java.util.LinkedList;
 import java.util.List;
 
-import Service.ServiceFacade;
 import main.data.OrderInfo;
 import main.data.ShowInfo;
 import main.bridge.Bridge;
 
 public class ProxyBridge implements Bridge {
-	private Bridge real = new ServiceFacade();
+	private Bridge real = null;
 
 	public void setRealBridge(Bridge implementation) {
 		if (real == null)

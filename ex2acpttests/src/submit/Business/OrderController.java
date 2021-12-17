@@ -1,4 +1,4 @@
-package Business;
+package submit.Business;
 
 import main.data.OrderInfo;
 import main.data.ShowInfo;
@@ -56,7 +56,6 @@ public class OrderController {
         }
         String date1 = show.convertTime(show.lastOrderDate);
         String today =  show.convertTime(System.currentTimeMillis());
-
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         try {
             if(sdf.parse(date1).before(sdf.parse(today))){
